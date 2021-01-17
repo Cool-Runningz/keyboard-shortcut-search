@@ -5,19 +5,31 @@ import { Container } from "@material-ui/core";
 
 //Components
 import OptionBar from "./components/OptionBar";
-/* import KeyboardView from "./components/KeyboardView"; */
+import KeyboardView from "./components/KeyboardView";
 import TableView from "./components/TableView";
 
 function App() {
   const [view, setView] = useState("keyboard");
+  const [category, setCategory] = useState("Mac");
 
   return (
     <div className="app">
       <h1>Keyboard Shortcut Finder ⌨️</h1>
+      <p className="sub-description">
+        A collection of commonly used shortcuts to help boost productivity ✅
+      </p>
       <Container component="main">
-        <OptionBar onViewChange={setView} currentView={view} />
-        {/* {view === "keyboard" ? <KeyboardView /> : <TableView />} */}
-        <TableView />
+        <OptionBar
+          currentView={view}
+          onCategoryChange={setCategory}
+          onViewChange={setView}
+        />
+        <h2> {category} Shortcuts </h2>
+        {view === "keyboard" ? (
+          <KeyboardView />
+        ) : (
+          <TableView category={category} />
+        )}
       </Container>
     </div>
   );

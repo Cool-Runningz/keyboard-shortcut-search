@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import { listShortcutsData } from "../helpers/shortcuts";
@@ -18,28 +18,33 @@ function createData(shortcut, description) {
   return { shortcut, description };
 }
 
-const renderRows = () => {
-  return listShortcutsData.map((item) => {
-    return createData(
-      <span>
-        {item.keys.map((key, index) => (
-          <>
-            <kbd className="key-table">{key}</kbd>
-            {index !== item.keys.length - 1 && <span>&nbsp; + &nbsp;</span>}
-          </>
-        ))}
-      </span>,
-      `${item.description}`
-    );
-  });
+const renderRows = (selectedCategory) => {
+  return listShortcutsData
+    .filter((item) => item.category === selectedCategory)
+    .map((item) => {
+      return createData(
+        <>
+          {item.keys.map((key, index) => (
+            <span key={`${index} - ${key[0]}`}>
+              <kbd className="key-table">{key}</kbd>
+              {index !== item.keys.length - 1 && <span>&nbsp; + &nbsp;</span>}
+            </span>
+          ))}
+        </>,
+        `${item.description}`
+      );
+    });
 };
 
-const rows = renderRows();
-
 const TableView = (props) => {
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    setRows(renderRows(props.category));
+  }, [props.category]);
+
   return (
     <Container maxWidth="md">
-      <h2>List View</h2>
       <TableContainer component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
@@ -68,6 +73,8 @@ const TableView = (props) => {
   );
 };
 
-TableView.propTypes = {};
+TableView.propTypes = {
+  category: PropTypes.string.isRequired
+};
 
 export default TableView;

@@ -17,42 +17,61 @@ const OptionBar = (props) => {
   };
 
   return (
-    <div>
-      <h4>Shortcut Categories: </h4>
-      <div className="options-container">
-        <ButtonGroup
-          size="large"
-          variant="contained"
-          color="primary"
-          aria-label="contained primary button group"
-        >
-          <Button startIcon={<ComputerIcon />}>Mac</Button>
-          <Button startIcon={<LanguageIcon />}>Browser</Button>
-          <Button startIcon={<DescriptionIcon />}>Text/Documents</Button>
-        </ButtonGroup>
-
+    <div className="options-container">
+      <ButtonGroup
+        size="large"
+        variant="contained"
+        color="primary"
+        aria-label="contained primary button group"
+      >
         <Button
-          variant="contained"
-          color="primary"
-          endIcon={
-            props.currentView === "keyboard" ? <TocIcon /> : <KeyboardIcon />
-          }
-          onClick={handleViewChange}
+          startIcon={<ComputerIcon />}
+          onClick={() => {
+            props.onCategoryChange("Mac");
+          }}
         >
-          {props.currentView === "keyboard" ? (
-            <span>List</span>
-          ) : (
-            <span>Keyboard</span>
-          )}
+          Mac
         </Button>
-      </div>
+        <Button
+          startIcon={<LanguageIcon />}
+          onClick={() => {
+            props.onCategoryChange("Browser");
+          }}
+        >
+          Browser
+        </Button>
+        <Button
+          startIcon={<DescriptionIcon />}
+          onClick={() => {
+            props.onCategoryChange("Document");
+          }}
+        >
+          Document
+        </Button>
+      </ButtonGroup>
+
+      <Button
+        variant="contained"
+        color="primary"
+        endIcon={
+          props.currentView === "keyboard" ? <TocIcon /> : <KeyboardIcon />
+        }
+        onClick={handleViewChange}
+      >
+        {props.currentView === "keyboard" ? (
+          <span>Table</span>
+        ) : (
+          <span>Keyboard</span>
+        )}
+      </Button>
     </div>
   );
 };
 
 OptionBar.propTypes = {
-  onViewChange: PropTypes.func.isRequired,
-  currentView: PropTypes.string
+  currentView: PropTypes.string,
+  onCategoryChange: PropTypes.func.isRequired,
+  onViewChange: PropTypes.func.isRequired
 };
 
 export default OptionBar;
