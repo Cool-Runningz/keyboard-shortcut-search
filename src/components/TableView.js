@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import { listShortcutsData } from "../helpers/shortcuts";
+import { shortcutsData } from "../helpers/shortcuts";
 
 import {
   Container,
@@ -19,7 +19,7 @@ function createData(shortcut, description) {
 }
 
 const renderRows = (selectedCategory) => {
-  return listShortcutsData
+  return shortcutsData
     .filter((item) => item.category === selectedCategory)
     .map((item) => {
       return createData(

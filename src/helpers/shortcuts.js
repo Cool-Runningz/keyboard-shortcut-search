@@ -1,5 +1,11 @@
-//TODO: Rename to just be shortcutsData??
-export const listShortcutsData = [
+export const SYMBOLS = {
+  Cmd: "⌘",
+  Ctrl: "⌃",
+  Option: "⌥",
+  Shift: "⇧"
+};
+
+export const shortcutsData = [
   {
     keys: ["Cmd", "Space"],
     description: "🔍 Show or hide the Spotlight search field",
