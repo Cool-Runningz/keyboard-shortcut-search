@@ -1,9 +1,20 @@
 export const SYMBOLS = {
-  Cmd: "⌘",
-  Ctrl: "⌃",
-  Option: "⌥",
-  Shift: "⇧"
+  Meta: "⌘",
+  Control: "⌃",
+  Alt: "⌥",
+  Shift: "⇧",
+  ArrowUp: "↑",
+  ArrowDown: "↓",
+  ArrowLeft:"←",
+  ArrowRight: "←"
+
 };
+
+export const KEYMAPS = {
+  Meta: "Command",
+  " ": "Space",
+  Alt: "Option"
+}
 
 export const shortcutsData = [
   {

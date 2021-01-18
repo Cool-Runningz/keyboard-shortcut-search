@@ -1,63 +1,78 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Key from "./Key";
 
-import { Container } from "@material-ui/core";
+import { Button, Container } from "@material-ui/core";
+import { KEYMAPS, SYMBOLS } from "../helpers/shortcuts";
+
+function getRandomInt(max = 100) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
 
 const KeyboardView = (props) => {
-  const [showCmdKey, setShowCmdKey] = useState(false);
-  const [showCtrlKey, setShowCtrlKey] = useState(false);
+  const [keysToDisplay, setKeysToDisplay] = useState([]);
 
-  //TESTING - POC - Tidy this up
-  const handleKeyDown = useCallback((event) => {
-    console.groupCollapsed("handleKeydown - test");
-    console.log(event);
-    const { code, key } = event;
-    console.log("CODE: ", code);
-    console.log("key: ", key);
-    console.groupEnd();
+  const renderKey = (key) => {
+    //TODO: See if there's a way to get more unique keys cuz sometimes you get the same one
+    const componentKey = (
+      <Key
+        key={getRandomInt()}
+        name={KEYMAPS[key] || key}
+        symbol={SYMBOLS[key]}
+      />
+    );
+    setKeysToDisplay([...keysToDisplay, componentKey]);
+  };
 
-    if (event.metaKey) {
-      event.preventDefault();
-      setShowCmdKey(true);
-    }
-    if (event.ctrlKey) {
-      setShowCtrlKey(true);
-    }
-    if (event.key === "Shift") {
-    }
-  }, []);
+  const handleKeyDown = useCallback(
+    (event) => {
+      console.groupCollapsed("handleKeydown - test");
+      console.log(event);
+      console.log("CODE: ", event.code);
+      console.log("key: ", event.key);
+      console.log("keyCode: ", event.keyCode);
+      console.groupEnd();
+
+      if (!event.metaKey) {
+        event.preventDefault();
+      }
+      if (keysToDisplay.length < 4) {
+        renderKey(event.key);
+      }
+    },
+    [keysToDisplay]
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => {
-      console.log("removing event listenter...");
       window.removeEventListener("keydown", handleKeyDown);
-      setShowCtrlKey(false);
-      setShowCmdKey(false);
     };
   }, [handleKeyDown]);
 
   return (
-    <Container maxWidth="md" style={{ backgroundColor: "antiquewhite" }}>
+    <Container maxWidth="md">
       <div className="keyboard-keys-container">
-        {showCmdKey && (
-          <>
-            <Key name="command" symbol="&#x2318;" />
-          </>
-        )}
-        {showCtrlKey && (
-          <>
-            <Key name="control" symbol="&#8963;" />
-          </>
+        {keysToDisplay.length > 0 && (
+          <React.Fragment>
+            {keysToDisplay.map((key) => {
+              return key;
+            })}
+            <Button
+              color="primary"
+              style={{ alignSelf: "center" }}
+              onClick={() => setKeysToDisplay([])}
+            >
+              Clear Keys
+            </Button>
+          </React.Fragment>
         )}
       </div>
-      <div className="shortcut-description">
-        <p>This is the space where I will explain what the shortcut does</p>
-      </div>
-      <p className="keyboard-prompt">
-        Enter a key combination to see if it's a shortcut ✂️
-      </p>
+      {keysToDisplay.length === 0 && (
+        <p className="keyboard-prompt">
+          Enter a key combination to see if it's a shortcut ✂️
+        </p>
+      )}
     </Container>
   );
 };
