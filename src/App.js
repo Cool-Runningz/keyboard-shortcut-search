@@ -26,7 +26,7 @@ function App() {
         />
         <h2> {category} Shortcuts </h2>
         {view === "keyboard" ? (
-          <KeyboardView />
+          <KeyboardView category={category} />
         ) : (
           <TableView category={category} />
         )}

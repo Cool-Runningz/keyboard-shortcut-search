@@ -12,18 +12,6 @@ function getRandomInt(max = 100) {
 const KeyboardView = (props) => {
   const [keysToDisplay, setKeysToDisplay] = useState([]);
 
-  const renderKey = (key) => {
-    //TODO: See if there's a way to get more unique keys cuz sometimes you get the same one
-    const componentKey = (
-      <Key
-        key={getRandomInt()}
-        name={KEYMAPS[key] || key}
-        symbol={SYMBOLS[key]}
-      />
-    );
-    setKeysToDisplay([...keysToDisplay, componentKey]);
-  };
-
   const handleKeyDown = useCallback(
     (event) => {
       console.groupCollapsed("handleKeydown - test");
@@ -37,7 +25,15 @@ const KeyboardView = (props) => {
         event.preventDefault();
       }
       if (keysToDisplay.length < 4) {
-        renderKey(event.key);
+        //Render the mac key to the DOM
+        const componentKey = (
+          <Key
+            key={getRandomInt()}
+            name={KEYMAPS[event.key] || event.key}
+            symbol={SYMBOLS[event.key]}
+          />
+        );
+        setKeysToDisplay([...keysToDisplay, componentKey]);
       }
     },
     [keysToDisplay]
@@ -75,6 +71,9 @@ const KeyboardView = (props) => {
       )}
     </Container>
   );
+};
+KeyboardView.propTypes = {
+  category: PropTypes.string.isRequired
 };
 
 export default KeyboardView;
