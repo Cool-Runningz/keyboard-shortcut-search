@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
-import { shortcutsData } from "../helpers/shortcuts";
-
 import {
   Container,
   Table,
@@ -18,16 +16,16 @@ function createData(shortcut, description) {
   return { shortcut, description };
 }
 
-const renderRows = (selectedCategory) => {
-  return shortcutsData
+const renderRows = (selectedCategory, data) => {
+  return data
     .filter((item) => item.category === selectedCategory)
     .map((item) => {
       return createData(
         <>
-          {item.keys.map((key, index) => (
+          {item.hotkeys.map((key, index) => (
             <span key={`${index} - ${key[0]}`}>
               <kbd className="key-table">{key}</kbd>
-              {index !== item.keys.length - 1 && <span>&nbsp; + &nbsp;</span>}
+              {index !== item.hotkeys.length - 1 && <span>&nbsp; + &nbsp;</span>}
             </span>
           ))}
         </>,
@@ -40,8 +38,8 @@ const TableView = (props) => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    setRows(renderRows(props.category));
-  }, [props.category]);
+    setRows(renderRows(props.category, props.data));
+  }, [props.category, props.data]);
 
   return (
     <Container maxWidth="md">
@@ -74,7 +72,8 @@ const TableView = (props) => {
 };
 
 TableView.propTypes = {
-  category: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired,
+  data: PropTypes.array
 };
 
 export default TableView;

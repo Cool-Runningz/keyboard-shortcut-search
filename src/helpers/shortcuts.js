@@ -14,286 +14,286 @@ export const KEYMAPS = {
   Meta: "Command",
   " ": "Space",
   Alt: "Option"
-}
+};
 
 export const shortcutsData = [
   {
-    keys: ["Cmd", "Space"],
+    hotkeys: ["Command", "Space"],
     description: "🔍 Show or hide the Spotlight search field",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "Tab"],
+    hotkeys: ["Command", "Tab"],
     description:
       "While holding command, press the TAB key to move forward between the open apps (from left to right)",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "`"],
+    hotkeys: ["Command", "`"],
     description:
       "While holding command, press the backquote (`) key to move backwards between the open apps (from right to left)",
     category: "Mac"
   },
   {
-    keys: ["Ctrl", "Cmd", "Space"],
+    hotkeys: ["Control", "Command", "Space"],
     description:
       "Show the Character Viewer, from which you can choose emoji and other symbols.",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "M"],
+    hotkeys: ["Command", "M"],
     description: "Minimize the front window to the Dock.",
     category: "Mac"
   },
   {
-    keys: ["Cmd", ","],
+    hotkeys: ["Command", ","],
     description: "Open preferences for the front app.",
     category: "Mac"
   },
   {
-    keys: ["Option", "Cmd", "D"],
+    hotkeys: ["Option", "Command", "D"],
     description: "Show or hide the Dock.",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "Shift", "3"],
+    hotkeys: ["Command", "Shift", "3"],
     description: "📸 Take a screenshot of your whole screen.",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "Shift", "4"],
+    hotkeys: ["Command", "Shift", "4"],
     description:
       "📸 Take a screenshot of a portion of your screen. This command presents a crosshair icon and from there you can drag to select the portion of the screen you want to capture",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "Shift", "5"],
+    hotkeys: ["Command", "Shift", "5"],
     description:
       "📸 Provides a slew of screen capture options like recording a selected portion of the screen and selecting the location you would like your screen capture to be saved to.",
     category: "Mac"
   },
   {
-    keys: ["Shift", "Cmd", "D"],
+    hotkeys: ["Shift", "Command", "D"],
     description: "In Finder window → Open the desktop folder",
     category: "Mac"
   },
   {
-    keys: ["Shift", "Cmd", "I"],
+    hotkeys: ["Shift", "Command", "I"],
     description: "In Finder window → Open the iCloud Drive",
     category: "Mac"
   },
   {
-    keys: ["Option", "Cmd", "L"],
+    hotkeys: ["Option", "Command", "L"],
     description: "In Finder window → Open the Downloads folder.",
     category: "Mac"
   },
   {
-    keys: ["Shift", "Cmd", "N"],
+    hotkeys: ["Shift", "Command", "N"],
     description: "In Finder window → Create a new folder.",
     category: "Mac"
   },
   {
-    keys: ["Ctrl", "Cmd", "Q"],
+    hotkeys: ["Control", "Command", "Q"],
     description: "🔒 Immediately lock your screen.",
     category: "Mac"
   },
   {
-    keys: ["Cmd", "N"],
+    hotkeys: ["Command", "N"],
     description: "Opens a new browser window.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "Shift", "N"],
+    hotkeys: ["Command", "Shift", "N"],
     description: "Opens a new tab in Incognito mode.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "L"],
+    hotkeys: ["Command", "L"],
     description: "Shifts focus to the address bar.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "W"],
+    hotkeys: ["Command", "W"],
     description: "Close the current tab or pop-up.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "T"],
+    hotkeys: ["Command", "T"],
     description: "Open a new tab, and jump to it",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "9"],
+    hotkeys: ["Command", "9"],
     description: "Jump to the last tab",
     category: "Browser"
   },
   {
-    keys: ["F12"],
+    hotkeys: ["F12"],
     description: "Open Developer Tools",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "F"],
+    hotkeys: ["Command", "F"],
     description: "Open the Find Bar to search the current page.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "+"],
+    hotkeys: ["Command", "+"],
     description: "Make everything on the page bigger (Zoom in).",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "-"],
+    hotkeys: ["Command", "-"],
     description: "Make everything on the page smaller (Zoom out).",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "0"],
+    hotkeys: ["Command", "0"],
     description: "Reset page zoom level.",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "`"],
+    hotkeys: ["Command", "`"],
     description:
       "Switches you between windows (if you have multiple browser windows open)",
     category: "Browser"
   },
   {
-    keys: ["Ctrl", "Tab"],
+    hotkeys: ["Control", "Tab"],
     description: "Move forward to the next tab (to the right)",
     category: "Browser"
   },
   {
-    keys: ["Ctrl", "Shift", "Tab"],
+    hotkeys: ["Control", "Shift", "Tab"],
     description: "Move backward to the previous tab (to the left)",
     category: "Browser"
   },
   {
-    keys: ["Cmd", "Z"],
+    hotkeys: ["Command", "Z"],
     description: "Undo the previous command.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "Shift", "Z"],
+    hotkeys: ["Command", "Shift", "Z"],
     description: "Redo the previous command.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "C"],
+    hotkeys: ["Command", "C"],
     description:
       "Copy the selected item to the Clipboard. This also works for files in the Finder.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "A"],
+    hotkeys: ["Command", "A"],
     description: "Select all items.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "V"],
+    hotkeys: ["Command", "V"],
     description:
       "Paste the contents of the Clipboard into the current document or app. This also works for files in the Finder.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "F"],
+    hotkeys: ["Command", "F"],
     description: "Find items in a document or open a Find window.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "S"],
+    hotkeys: ["Command", "S"],
     description: "Save the current document.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "B"],
+    hotkeys: ["Command", "B"],
     description: "Make the selected text bold, or turn bold on or off",
     category: "Document"
   },
   {
-    keys: ["Cmd", "I"],
+    hotkeys: ["Command", "I"],
     description: "Italicize the selected text, or turn italics on or off.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "K"],
+    hotkeys: ["Command", "K"],
     description: "Create a hyperlink.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "U"],
+    hotkeys: ["Command", "U"],
     description: "Underline the selected text, or turn underlining on or off.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "ArrowUp"],
+    hotkeys: ["Command", "ArrowUp"],
     description: "Move the insertion point to the beginning of the document.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "ArrowDown"],
+    hotkeys: ["Command", "ArrowDown"],
     description: "Move the insertion point to the end of the document.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "ArrowLeft"],
+    hotkeys: ["Command", "ArrowLeft"],
     description:
       "Move the insertion point to the beginning of the current line.",
     category: "Document"
   },
   {
-    keys: ["Cmd", "ArrowRight"],
+    hotkeys: ["Command", "ArrowRight"],
     description: "Move the insertion point to the end of the current line.",
     category: "Document"
   },
   {
-    keys: ["Option", "ArrowLeft"],
+    hotkeys: ["Option", "ArrowLeft"],
     description:
       "Move the insertion point to the beginning of the previous word.",
     category: "Document"
   },
   {
-    keys: ["Option", "ArrowRight"],
+    hotkeys: ["Option", "ArrowRight"],
     description: "Move the insertion point to the end of the next word.",
     category: "Document"
   },
   {
-    keys: ["Shift", "Cmd", "ArrowUp"],
+    hotkeys: ["Shift", "Command", "ArrowUp"],
     description:
       "Select the text between the insertion point and the beginning of the document.",
     category: "Document"
   },
   {
-    keys: ["Shift", "Cmd", "ArrowDown"],
+    hotkeys: ["Shift", "Command", "ArrowDown"],
     description:
       "Select the text between the insertion point and the end of the document.",
     category: "Document"
   },
   {
-    keys: ["Shift", "Cmd", "ArrowLeft"],
+    hotkeys: ["Shift", "Command", "ArrowLeft"],
     description:
       "Select the text between the insertion point and the beginning of the current line.",
     category: "Document"
   },
   {
-    keys: ["Shift", "Cmd", "ArrowRight"],
+    hotkeys: ["Shift", "Command", "ArrowRight"],
     description:
       "Select the text between the insertion point and the end of the current line.",
     category: "Document"
   },
   {
-    keys: ["Option", "Shift", "Cmd", "V"],
+    hotkeys: ["Option", "Shift", "Command", "V"],
     description:
       "Paste and Match Style: Apply the style of the surrounding content to the item pasted within that content.",
     category: "Document"
   },
   {
-    keys: ["Option", "Delete"],
+    hotkeys: ["Option", "Delete"],
     description: "Delete the word to the left of the insertion point.",
     category: "Document"
   },
   {
-    keys: ["Ctrl", "D"],
+    hotkeys: ["Control", "D"],
     description:
       "Delete the character to the right of the insertion point. (Forward Delete)",
     category: "Document"

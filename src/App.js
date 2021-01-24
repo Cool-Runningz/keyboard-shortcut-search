@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import "./App.css";
 import { Container } from "@material-ui/core";
 
+import { shortcutsData } from "./helpers/shortcuts";
+
 //Components
 import OptionBar from "./components/OptionBar";
 import KeyboardView from "./components/KeyboardView";
@@ -28,7 +30,7 @@ function App() {
         {view === "keyboard" ? (
           <KeyboardView category={category} />
         ) : (
-          <TableView category={category} />
+          <TableView category={category} data={shortcutsData} />
         )}
       </Container>
     </div>

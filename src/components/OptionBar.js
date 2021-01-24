@@ -10,12 +10,6 @@ import DescriptionIcon from "@material-ui/icons/Description";
 import KeyboardIcon from "@material-ui/icons/Keyboard";
 
 const OptionBar = (props) => {
-  const handleViewChange = () => {
-    props.onViewChange((prevState) => {
-      return prevState === "keyboard" ? "list" : "keyboard";
-    });
-  };
-
   return (
     <div className="options-container">
       <ButtonGroup
@@ -56,7 +50,11 @@ const OptionBar = (props) => {
         endIcon={
           props.currentView === "keyboard" ? <TocIcon /> : <KeyboardIcon />
         }
-        onClick={handleViewChange}
+        onClick={() =>
+          props.onViewChange(
+            props.currentView === "keyboard" ? "list" : "keyboard"
+          )
+        }
       >
         {props.currentView === "keyboard" ? (
           <span>Table</span>
