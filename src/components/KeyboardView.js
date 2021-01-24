@@ -42,18 +42,13 @@ const KeyboardView = (props) => {
   );
 
   useEffect(() => {
-    console.groupCollapsed("useEffect - category changed - ", props.category);
-    console.log("category changed: ", props.category);
-    console.groupEnd();
-
-    //FIXME: This gets called on initial render so determine if you actually want this here
-
-    /*FIXME: Need to handle scenario when a user switches category mid-search. Currently,
-     *        the logic won't work cuz we are doing a "progressive" or "incremental" search and the data will be
-     *        based off the shortened data from the previous category. We almost want a "reset"
-     *        button of sorts. Think about best way to handle this.*/
-    //searchForMatch(event.key, keysToDisplay)
-    //setKeysToDisplay([])
+    //Reset all the things
+    setKeysToDisplay([]);
+    setShortcutsToDisplay([]);
+    searchMatches.current = getDataFilteredByCategory(
+        shortcutsData,
+        props.category
+    );
   }, [props.category]);
 
   useEffect(() => {
@@ -67,7 +62,6 @@ const KeyboardView = (props) => {
         searchMatches.current
       );
 
-      console.log("current search matches: ", searchMatches.current);
       setShortcutsToDisplay(searchMatches.current);
     }
   }, [keysToDisplay]);

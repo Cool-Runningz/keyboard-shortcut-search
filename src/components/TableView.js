@@ -12,6 +12,8 @@ import {
   Paper
 } from "@material-ui/core";
 
+import { ABBREV } from "../helpers/shortcuts"
+
 function createData(shortcut, description) {
   return { shortcut, description };
 }
@@ -24,7 +26,7 @@ const renderRows = (selectedCategory, data) => {
         <>
           {item.hotkeys.map((key, index) => (
             <span key={`${index} - ${key[0]}`}>
-              <kbd className="key-table">{key}</kbd>
+              <kbd className="key-table">{ABBREV[key] || key}</kbd>
               {index !== item.hotkeys.length - 1 && <span>&nbsp; + &nbsp;</span>}
             </span>
           ))}

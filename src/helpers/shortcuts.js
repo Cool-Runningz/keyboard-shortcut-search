@@ -6,8 +6,7 @@ export const SYMBOLS = {
   ArrowUp: "↑",
   ArrowDown: "↓",
   ArrowLeft:"←",
-  ArrowRight: "←"
-
+  ArrowRight: "→"
 };
 
 export const KEYMAPS = {
@@ -15,6 +14,15 @@ export const KEYMAPS = {
   " ": "Space",
   Alt: "Option"
 };
+
+export const ABBREV = {
+  Command: "Cmd",
+  Control: "Ctrl",
+  ArrowUp: "⬆️",
+  ArrowDown: "⬇️",
+  ArrowLeft: "⬅️",
+  ArrowRight: "➡️"
+}
 
 export const shortcutsData = [
   {
