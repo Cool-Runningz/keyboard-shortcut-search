@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+import { withStyles } from "@material-ui/core/styles";
 import {
   Container,
   Table,
@@ -12,7 +13,23 @@ import {
   Paper
 } from "@material-ui/core";
 
-import { ABBREV } from "../helpers/shortcuts"
+import { ABBREV } from "../helpers/shortcuts";
+
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    "&:nth-of-type(even)": {
+      backgroundColor: "#edebf1"
+    }
+  }
+}))(TableRow);
+
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor: "#101079",
+    color: theme.palette.common.white,
+    fontSize: 18
+  }
+}))(TableCell);
 
 function createData(shortcut, description) {
   return { shortcut, description };
@@ -27,7 +44,9 @@ const renderRows = (selectedCategory, data) => {
           {item.hotkeys.map((key, index) => (
             <span key={`${index} - ${key[0]}`}>
               <kbd className="key-table">{ABBREV[key] || key}</kbd>
-              {index !== item.hotkeys.length - 1 && <span>&nbsp; + &nbsp;</span>}
+              {index !== item.hotkeys.length - 1 && (
+                <span>&nbsp; + &nbsp;</span>
+              )}
             </span>
           ))}
         </>,
@@ -44,18 +63,18 @@ const TableView = (props) => {
   }, [props.category, props.data]);
 
   return (
-    <Container maxWidth="md">
-      <TableContainer component={Paper}>
+    <Container maxWidth="md" style={{ marginBottom: "3rem" }}>
+      <TableContainer elevation={3} component={Paper}>
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Keyboard Shortcut ✂️</TableCell>
-              <TableCell align="left">Description</TableCell>
+              <StyledTableCell>Keyboard Shortcut ✂️</StyledTableCell>
+              <StyledTableCell align="left">Description</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.description}>
+              <StyledTableRow key={row.description}>
                 <TableCell
                   component="th"
                   scope="row"
@@ -64,7 +83,7 @@ const TableView = (props) => {
                   {row.shortcut}
                 </TableCell>
                 <TableCell align="left">{row.description}</TableCell>
-              </TableRow>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>
