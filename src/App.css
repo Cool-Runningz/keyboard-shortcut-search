@@ -4,9 +4,13 @@ body {
   padding-bottom: 3rem;
 }
 
-h1,
+h1 {
+  margin: 5rem 0 2rem;
+  text-align: center;
+}
+
 h2 {
-  margin: 2rem 0;
+  margin: 3rem 0;
   text-align: center;
 }
 
@@ -17,43 +21,12 @@ h2 {
   align-items: center;
 }
 
-.options-container {
-  display: flex;
-  justify-content: space-around;
-}
-
-.mac-key-large {
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  height: 4rem;
-  width: 7rem;
-
-  justify-content: space-between;
-  align-items: flex-end;
-
-  margin: 0 0.25rem;
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
-
-  margin-right: 2.5rem;
-}
-
 .font-md {
   font-size: 1rem;
 }
 
 .font-lg {
   font-size: 1.5rem;
-}
-
-.key-table {
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding: 0.25rem;
-  border: 1px solid grey;
-  border-radius: 0.25rem;
 }
 
 .keyboard-keys-container {
@@ -68,13 +41,39 @@ h2 {
   border-bottom: 5px groove;
 }
 
-.sub-description {
+.key-table {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.25rem;
+  border: 1px solid grey;
+  border-radius: 0.25rem;
+}
+
+.mac-key-large {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 4rem;
+  width: 7rem;
+
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin: 0 2.5rem 0 0.25rem;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
+}
+
+.no-results {
   text-align: center;
-  font-style: italic;
-  background-color: #80808038;
-  border-left: 5px solid grey;
-  padding: 1rem;
-  margin-bottom: 2.5rem;
+  margin-top: 5rem;
+  font-size: 2rem;
+}
+
+.options-container {
+  display: flex;
+  justify-content: space-around;
 }
 
 .shortcut-description {
@@ -83,8 +82,11 @@ h2 {
   border-radius: 0.5rem;
 }
 
-.no-results {
+.sub-description {
   text-align: center;
-  margin-top: 5rem;
-  font-size: 2rem;
+  font-style: italic;
+  background-color: #80808038;
+  border-left: 5px solid grey;
+  padding: 1rem;
+  margin-bottom: 2.5rem;
 }

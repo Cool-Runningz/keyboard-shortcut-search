@@ -10,6 +10,12 @@ import OptionBar from "./components/OptionBar";
 import KeyboardView from "./components/KeyboardView";
 import TableView from "./components/TableView";
 
+const Icons = {
+    Mac: "🖥️",
+    Browser: "🌐",
+    Document: "📄"
+}
+
 function App() {
   const [view, setView] = useState("keyboard");
   const [category, setCategory] = useState("Mac");
@@ -26,7 +32,7 @@ function App() {
           onCategoryChange={setCategory}
           onViewChange={setView}
         />
-        <h2> {category} Shortcuts </h2>
+        <h2>️ {Icons[category]} {category} Shortcuts </h2>
         {view === "keyboard" ? (
           <KeyboardView category={category} />
         ) : (
