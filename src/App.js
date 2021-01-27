@@ -11,14 +11,15 @@ import KeyboardView from "./components/KeyboardView";
 import TableView from "./components/TableView";
 
 const Icons = {
-    Mac: "🖥️",
-    Browser: "🌐",
-    Document: "📄"
-}
+  Mac: "🖥️", //**TODO: Rename this to match new category name. */
+  Browser: "🌐",
+  Document: "📄"
+};
 
 function App() {
   const [view, setView] = useState("keyboard");
   const [category, setCategory] = useState("Mac");
+  const [osValue, setOSValue] = useState("Mac");
 
   return (
     <div className="app">
@@ -31,8 +32,12 @@ function App() {
           currentView={view}
           onCategoryChange={setCategory}
           onViewChange={setView}
+          onOSChange={setOSValue}
+          osValue={osValue}
         />
-        <h2>️ {Icons[category]} {category} Shortcuts </h2>
+        <h2>
+          ️ {Icons[category]} {category} Shortcuts{" "}
+        </h2>
         {view === "keyboard" ? (
           <KeyboardView category={category} />
         ) : (

@@ -70,9 +70,15 @@ h2 {
   font-size: 2rem;
 }
 
-.options-container {
+.options-container-buttons {
   display: flex;
   justify-content: space-around;
+}
+
+.options-container-radiogroup {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
 .shortcut-description {

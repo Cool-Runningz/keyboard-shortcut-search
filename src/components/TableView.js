@@ -73,8 +73,8 @@ const TableView = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.description}>
+            {rows.map((row, index) => (
+              <StyledTableRow key={`${index} - ${row.description}`}>
                 <TableCell
                   component="th"
                   scope="row"
