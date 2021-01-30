@@ -51,10 +51,10 @@ const OptionBar = (props) => {
           <Button
             startIcon={<ComputerIcon />}
             onClick={() => {
-              props.onCategoryChange("Mac");
+              props.onCategoryChange("Native");
             }}
           >
-            Mac
+            Native
           </Button>
           <Button
             startIcon={<LanguageIcon />}

@@ -4,7 +4,7 @@ import Key from "./Key";
 import TableView from "./TableView";
 
 import { Button, Container } from "@material-ui/core";
-import { KEYMAPS, shortcutsData, SYMBOLS } from "../helpers/shortcuts";
+import { KEYMAPS, SYMBOLS } from "../helpers/shortcuts";
 
 //TODO: Move these helper functions into a helpers file???
 function getRandomInt(max = 1000) {
@@ -20,11 +20,11 @@ const getDataFilteredByCategory = (data, category) => {
  *     1. Assign 'indexToCompare' to the last index of the `keysToDisplay` array.
  *     2. Determine the search match by taking the eventKey and comparing it to the last index in the `keysToDisplay` array
  *    */
-const searchForIncrementalMatch = (eventKey, keysEntered, currentMatches) => {
+const searchForIncrementalMatch = (eventKey, keysEntered, currentMatches, osValue) => {
   const indexToCompare = keysEntered.length - 1;
 
   return currentMatches.filter((item) => {
-    const keyToCompare = KEYMAPS[eventKey] || eventKey;
+    const keyToCompare = KEYMAPS[osValue][eventKey] || eventKey;
     return (
       keyToCompare.toUpperCase() === item.hotkeys[indexToCompare]?.toUpperCase()
     );
@@ -38,7 +38,7 @@ const KeyboardView = (props) => {
 
   //Refs
   const searchMatches = useRef(
-    getDataFilteredByCategory(shortcutsData, props.category)
+    getDataFilteredByCategory(props.data, props.category)
   );
 
   useEffect(() => {
@@ -46,10 +46,10 @@ const KeyboardView = (props) => {
     setKeysToDisplay([]);
     setShortcutsToDisplay([]);
     searchMatches.current = getDataFilteredByCategory(
-        shortcutsData,
+        props.data,
         props.category
     );
-  }, [props.category]);
+  }, [props.category, props.osValue, props.data]);
 
   useEffect(() => {
     if (keysToDisplay.length > 0) {
@@ -59,12 +59,13 @@ const KeyboardView = (props) => {
       searchMatches.current = searchForIncrementalMatch(
         lastKeyPressed,
         keysToDisplay,
-        searchMatches.current
+        searchMatches.current,
+        props.osValue
       );
 
       setShortcutsToDisplay(searchMatches.current);
     }
-  }, [keysToDisplay]);
+  }, [keysToDisplay, props.osValue]);
 
   /* This method gets called when the keyDown event occurs and handles creating the new <Key /> component for
    * display and setting up the object structure to be searchable later on. */
@@ -75,20 +76,20 @@ const KeyboardView = (props) => {
     const KeyComponent = (
       <Key
         key={getRandomInt()}
-        name={KEYMAPS[event.key] || event.key}
+        name={KEYMAPS[props.osValue][event.key] || event.key}
         symbol={SYMBOLS[event.key]}
       />
     );
 
     const newKeyInfo = {
       keyComponent: KeyComponent,
-      keyEntered: KEYMAPS[event.key] || event.key
+      keyEntered: KEYMAPS[props.osValue][event.key] || event.key
     };
 
     setKeysToDisplay((prevState) =>
       prevState.length < 4 ? [...prevState, newKeyInfo] : prevState
     );
-  }, []);
+  }, [props.osValue]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -97,12 +98,13 @@ const KeyboardView = (props) => {
     };
   }, [handleKeyDown]);
 
+  //TODO: Consider wrapping this in a useCallback so it can be used in the useEffect??
   const handleClearKeys = () => {
     //Reset all the things
     setKeysToDisplay([]);
     setShortcutsToDisplay([]);
     searchMatches.current = getDataFilteredByCategory(
-      shortcutsData,
+      props.data,
       props.category
     );
   };
@@ -140,7 +142,8 @@ const KeyboardView = (props) => {
   );
 };
 KeyboardView.propTypes = {
-  category: PropTypes.string.isRequired
+  category: PropTypes.string.isRequired,
+  osValue: PropTypes.string.isRequired
 };
 
 export default KeyboardView;

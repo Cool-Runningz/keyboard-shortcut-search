@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { Container } from "@material-ui/core";
 
-import { shortcutsData } from "./helpers/shortcuts";
+import { macShortcutsData, windowsShortcutsData } from "./helpers/shortcuts";
 
 //Components
 import OptionBar from "./components/OptionBar";
@@ -11,14 +11,14 @@ import KeyboardView from "./components/KeyboardView";
 import TableView from "./components/TableView";
 
 const Icons = {
-  Mac: "🖥️", //**TODO: Rename this to match new category name. */
+  Native: "🖥️",
   Browser: "🌐",
   Document: "📄"
 };
 
 function App() {
   const [view, setView] = useState("keyboard");
-  const [category, setCategory] = useState("Mac");
+  const [category, setCategory] = useState("Native");
   const [osValue, setOSValue] = useState("Mac");
 
   return (
@@ -36,12 +36,12 @@ function App() {
           osValue={osValue}
         />
         <h2>
-          ️ {Icons[category]} {category} Shortcuts{" "}
+          ️ {Icons[category]} {osValue} {category} Shortcuts{" "}
         </h2>
         {view === "keyboard" ? (
-          <KeyboardView category={category} />
+          <KeyboardView category={category} osValue={osValue} data={osValue === "Mac" ? macShortcutsData : windowsShortcutsData} />
         ) : (
-          <TableView category={category} data={shortcutsData} />
+          <TableView category={category} data={osValue === "Mac" ? macShortcutsData : windowsShortcutsData} />
         )}
       </Container>
     </div>
