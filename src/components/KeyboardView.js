@@ -20,7 +20,12 @@ const getDataFilteredByCategory = (data, category) => {
  *     1. Assign 'indexToCompare' to the last index of the `keysToDisplay` array.
  *     2. Determine the search match by taking the eventKey and comparing it to the last index in the `keysToDisplay` array
  *    */
-const searchForIncrementalMatch = (eventKey, keysEntered, currentMatches, osValue) => {
+const searchForIncrementalMatch = (
+  eventKey,
+  keysEntered,
+  currentMatches,
+  osValue
+) => {
   const indexToCompare = keysEntered.length - 1;
 
   return currentMatches.filter((item) => {
@@ -46,8 +51,8 @@ const KeyboardView = (props) => {
     setKeysToDisplay([]);
     setShortcutsToDisplay([]);
     searchMatches.current = getDataFilteredByCategory(
-        props.data,
-        props.category
+      props.data,
+      props.category
     );
   }, [props.category, props.osValue, props.data]);
 
@@ -69,27 +74,31 @@ const KeyboardView = (props) => {
 
   /* This method gets called when the keyDown event occurs and handles creating the new <Key /> component for
    * display and setting up the object structure to be searchable later on. */
-  const handleKeyDown = useCallback((event) => {
-    if (!event.metaKey) event.preventDefault();
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (!event.metaKey) event.preventDefault();
 
-    //Setup <Key /> component to render the mac key to the DOM
-    const KeyComponent = (
-      <Key
-        key={getRandomInt()}
-        name={KEYMAPS[props.osValue][event.key] || event.key}
-        symbol={SYMBOLS[event.key]}
-      />
-    );
+      // //Setup <Key /> component to render the mac key to the DOM
+      const symbol = props.osValue === "Mac" ? SYMBOLS[event.key] : null;
+      const KeyComponent = (
+        <Key
+          key={getRandomInt()}
+          name={KEYMAPS[props.osValue][event.key] || event.key}
+          symbol={symbol}
+        />
+      );
 
-    const newKeyInfo = {
-      keyComponent: KeyComponent,
-      keyEntered: KEYMAPS[props.osValue][event.key] || event.key
-    };
+      const newKeyInfo = {
+        keyComponent: KeyComponent,
+        keyEntered: KEYMAPS[props.osValue][event.key] || event.key
+      };
 
-    setKeysToDisplay((prevState) =>
-      prevState.length < 4 ? [...prevState, newKeyInfo] : prevState
-    );
-  }, [props.osValue]);
+      setKeysToDisplay((prevState) =>
+        prevState.length < 4 ? [...prevState, newKeyInfo] : prevState
+      );
+    },
+    [props.osValue]
+  );
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
@@ -129,7 +138,7 @@ const KeyboardView = (props) => {
       </div>
       {keysToDisplay.length === 0 && (
         <p className="keyboard-prompt">
-          Enter a key combination to see if it's a shortcut ✂️
+          🔍 Press any key to begin a shortcut search ✂️
         </p>
       )}
       {shortcutsToDisplay.length === 0 && keysToDisplay.length > 0 && (

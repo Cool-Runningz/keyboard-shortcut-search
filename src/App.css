@@ -95,3 +95,25 @@ h2 {
   padding: 1rem;
   margin-bottom: 2.5rem;
 }
+
+.gh-logo-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.gh-logo-container a {
+  position: absolute;
+  top: 5px;
+}
+.triangle-top-right {
+  width: 0;
+  height: 0;
+  border-top: 95px solid #152835;
+  border-left: 95px solid transparent;
+}
+
+a > img {
+  width: 3rem;
+}
+
