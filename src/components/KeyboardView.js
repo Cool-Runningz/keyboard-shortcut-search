@@ -111,9 +111,9 @@ const KeyboardView = (props) => {
         )}
       </div>
       {keysToDisplay.length === 0 && (
-        <p className="keyboard-prompt">
-          🔍 Press any key to begin a shortcut search ✂️
-        </p>
+        <div className="keyboard-prompt typewriter">
+          <p>Press any key to begin a shortcut search 🔍️</p>
+        </div>
       )}
       {shortcutsToDisplay.length === 0 && keysToDisplay.length > 0 && (
         <p className="no-results">🔍 No results found </p>
