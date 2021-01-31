@@ -27,5 +27,6 @@ export const ABBREV = {
     ArrowUp: "⬆️",
     ArrowDown: "⬇️",
     ArrowLeft: "⬅️",
-    ArrowRight: "➡️"
+    ArrowRight: "➡️",
+    Meta: "Win" //Will only get applied for Windows
 };

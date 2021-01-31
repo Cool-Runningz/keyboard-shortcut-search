@@ -82,7 +82,7 @@ const windowsShortcutsData = [
     {
         hotkeys: ["Control", "C"],
         description:
-            "Copy the selected item to the Clipboard. This also works for files in the Finder.",
+            "Copy the selected item to the Clipboard. This also works for files in the Explorer.",
         category: "Document"
     },
     {
@@ -93,7 +93,7 @@ const windowsShortcutsData = [
     {
         hotkeys: ["Control", "V"],
         description:
-            "Paste the contents of the Clipboard into the current document or app. This also works for files in the Finder.",
+            "Paste the contents of the Clipboard into the current document or app. This also works for files in the Explorer.",
         category: "Document"
     },
     {
@@ -175,32 +175,32 @@ const windowsShortcutsData = [
     },
     {
         hotkeys: ["Control", "W"],
-        description: "In Finder window -> Close the active window.",
+        description: "In Explorer window -> Close the active window.",
         category: "Native"
     },
     {
         hotkeys: ["Control", "N"],
-        description: "In Finder window -> Open a new window.",
+        description: "In Explorer window -> Open a new window.",
         category: "Native"
     },
     {
         hotkeys: ["Control", "F"],
-        description: "In Finder window -> Select the search box.",
+        description: "In Explorer window -> Select the search box.",
         category: "Native"
     },
     {
         hotkeys: ["Control", "E"],
-        description: "In Finder window -> Select the search box.",
+        description: "In Explorer window -> Select the search box.",
         category: "Native"
     },
     {
         hotkeys: ["Alt", "D"],
-        description: "In Finder window -> Select the address bar.",
+        description: "In Explorer window -> Select the address bar.",
         category: "Native"
     },
     {
         hotkeys: ["Control", "Shift", "N"],
-        description: "In Finder window -> Create a new folder.",
+        description: "In Explorer window -> Create a new folder.",
         category: "Native"
     },
     {
@@ -241,6 +241,33 @@ const windowsShortcutsData = [
     {
         hotkeys: ["Meta", ";"],
         description: "Open emoji panel.",
+        category: "Native"
+    },
+    {
+        hotkeys: ["Control", "Z"],
+        description: "Undo the previous command.",
+        category: "Native"
+    },
+    {
+        hotkeys: ["Control", "Y"],
+        description: "Redo the previous command.",
+        category: "Native"
+    },
+    {
+        hotkeys: ["Control", "C"],
+        description:
+            "Copy the selected item to the Clipboard. This also works for files in the Explorer.",
+        category: "Native"
+    },
+    {
+        hotkeys: ["Control", "A"],
+        description: "Select all items.",
+        category: "Native"
+    },
+    {
+        hotkeys: ["Control", "V"],
+        description:
+            "Paste the contents of the Clipboard into the current document or app. This also works for files in the Explorer.",
         category: "Native"
     }
 ];
