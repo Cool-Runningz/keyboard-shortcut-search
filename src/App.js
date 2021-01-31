@@ -37,7 +37,11 @@ function App() {
         </a>
       </div>
 
-      <h1> ⌨️ Keyboard Shortcut Search</h1>
+      <div className="header-title">
+        <span>⌨️</span>
+        <h1>️ Shortcut Search</h1>
+      </div>
+
       <p className="sub-description">
         A collection of commonly used keyboard shortcuts to help boost
         productivity ✅

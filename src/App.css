@@ -28,6 +28,18 @@ h2 {
   font-size: 1.5rem;
 }
 
+.header-title {
+  display: flex;
+  align-items: flex-end;
+}
+
+.header-title > span {
+  font-size: 5rem;
+  transform: rotate(321deg);
+  text-shadow: -5px 10px #8080808a;
+  margin-right: 0.2rem
+}
+
 .keyboard-keys-container {
   display: flex;
   justify-content: center;
