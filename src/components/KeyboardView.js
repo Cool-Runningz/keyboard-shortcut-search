@@ -1,40 +1,14 @@
 import React, { useCallback, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
+
+//Data and helpers
+import { KEYMAPS, SYMBOLS } from "../data/mappings";
+import { getDataFilteredByCategory, getRandomInt, searchForIncrementalMatch} from "../util/helpers"
+
+//Components
 import Key from "./Key";
 import TableView from "./TableView";
-
 import { Button, Container } from "@material-ui/core";
-import { KEYMAPS, SYMBOLS } from "../helpers/shortcuts";
-
-//TODO: Move these helper functions into a helpers file???
-function getRandomInt(max = 1000) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-
-//Filter down to all the shortcuts based on the selected category
-const getDataFilteredByCategory = (data, category) => {
-  return data.filter((item) => item.category === category);
-};
-
-/*This function performs an "incremental search."
- *     1. Assign 'indexToCompare' to the last index of the `keysToDisplay` array.
- *     2. Determine the search match by taking the eventKey and comparing it to the last index in the `keysToDisplay` array
- *    */
-const searchForIncrementalMatch = (
-  eventKey,
-  keysEntered,
-  currentMatches,
-  osValue
-) => {
-  const indexToCompare = keysEntered.length - 1;
-
-  return currentMatches.filter((item) => {
-    const keyToCompare = KEYMAPS[osValue][eventKey] || eventKey;
-    return (
-      keyToCompare.toUpperCase() === item.hotkeys[indexToCompare]?.toUpperCase()
-    );
-  });
-};
 
 const KeyboardView = (props) => {
   //State
@@ -107,7 +81,7 @@ const KeyboardView = (props) => {
     };
   }, [handleKeyDown]);
 
-  //TODO: Consider wrapping this in a useCallback so it can be used in the useEffect??
+  //NOTE: Consider wrapping this in a useCallback so it can be used in the useEffect??
   const handleClearKeys = () => {
     //Reset all the things
     setKeysToDisplay([]);

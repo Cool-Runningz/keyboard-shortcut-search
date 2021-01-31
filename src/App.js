@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 import "./App.css";
-import { Container } from "@material-ui/core";
+import GithubLogo from "./images/GitHub-Mark-Light.png";
 
-import { macShortcutsData, windowsShortcutsData } from "./helpers/shortcuts";
-import GithubLogo from "./images/GitHub-Mark-Light.png"
+//Data
+import macShortcutsData from "./data/macShortcuts";
+import windowsShortcutsData from "./data/windowsShortcuts";
 
 //Components
+import Container from "@material-ui/core/Container";
 import OptionBar from "./components/OptionBar";
 import KeyboardView from "./components/KeyboardView";
 import TableView from "./components/TableView";
@@ -26,14 +28,19 @@ function App() {
     <div className="app">
       <div className="gh-logo-container">
         <div className="triangle-top-right" />
-          <a href="https://github.com/Cool-Runningz/keyboard-shortcut-search" target="_blank">
-              <img src={GithubLogo} alt="Github Logo"/>
-          </a>
+        <a
+          href="https://github.com/Cool-Runningz/keyboard-shortcut-search"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={GithubLogo} alt="Github Logo" style={{ width: "3rem" }} />
+        </a>
       </div>
 
       <h1> ⌨️ Keyboard Shortcut Search</h1>
       <p className="sub-description">
-        A collection of commonly used keyboard shortcuts to help boost productivity ✅
+        A collection of commonly used keyboard shortcuts to help boost
+        productivity ✅
       </p>
       <Container component="main">
         <OptionBar

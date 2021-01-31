@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
+//Data
+import { ABBREV } from "../data/mappings";
+
+//Material UI
 import { withStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -13,8 +17,7 @@ import {
   Paper
 } from "@material-ui/core";
 
-import { ABBREV } from "../helpers/shortcuts";
-
+/********* Additional Table Styling **************/
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(even)": {
@@ -65,7 +68,7 @@ const TableView = (props) => {
   return (
     <Container maxWidth="md" style={{ marginBottom: "3rem" }}>
       <TableContainer elevation={3} component={Paper}>
-        <Table aria-label="simple table">
+        <Table aria-label="Table view of shortcuts">
           <TableHead>
             <TableRow>
               <StyledTableCell>Keyboard Shortcut ✂️</StyledTableCell>
