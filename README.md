@@ -55,6 +55,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Alyssa Holland - [@Code_Runnings](https://twitter.com/your_username) - HeyAHolland@gmail.com
+Alyssa Holland - [@alyssa_codes](https://twitter.com/alyssa_codes) - HeyAHolland@gmail.com
 
 Project Link: [https://github.com/Cool-Runningz/keyboard-shortcut-search](https://github.com/Cool-Runningz/keyboard-shortcut-search)
